@@ -21,17 +21,19 @@ obj.getInfo(); // Виводить всі властивості, включаю
 
   getInfo: function() {
     for (let key in this) {
-      console.log(key + ': ' + this[key]);
+      if (typeof this[key] !== 'function') {
+        console.log(`${key}: ${this[key]}');
+      }
     }
   }
 };
 
-//seaBag.getInfo();
+// seaBag.getInfo();
 
 seaBag.snacks = 'Фрукти та вода';
 
-seaBag.getInfo();
- */
+seaBag.getInfo(); */
+
 
 /* Задача 2. Сума вартості послуг
 
@@ -66,42 +68,47 @@ services['Розбити скло'] = "200 грн";
     let totalCoast = 0;
     for (let key in this) {
       if (typeof this[key] === "string" && this[key].includes("грн")) {
-        totalCoast += parseInt(this[key]);
+        totalCoast += parseFloat(this[key]);
       }
     }
-    return totalCoast + "грн";
+    return totalCoast.toFixed(2) + " грн";
   },
 
- minPrice: function() {
-    let min = 0;
+  minPrice: function() {
+    let min = null;
     for (let key in this) {
       if (typeof this[key] === "string" && this[key].includes("грн")) {
-        let value = parseInt(this[key]);
-         if (min === 0 || value < min) {
-         min = value;
+        let value = parseFloat(this[key]);
+        if (!isNaN(value)) {
+          if (min === null || value < min) {
+            min = value;
+          }
         }
       }
     }
-    return min + "грн";
+    return min !== null ? min.toFixed(2) + " грн" : "Немає мін значення";
   },
 
   maxPrice: function() {
-    let max = 0;
+    let max = null;
     for (let key in this) {
       if (typeof this[key] === "string" && this[key].includes("грн")) {
-        let value = parseInt(this[key]);
-        if (max === 0 || value > max) {
-         max = value;
+        let value = parseFloat(this[key]);
+        if (!isNaN(value)) {
+          if (max === null || value > max) {
+            max = value;
+          }
         }
       }
     }
-    return max  + "грн";
+    return max !== null ? max.toFixed(2) + " грн" : "Немає макс значення";
   }
 };
 
-services['Розбити скло'] = "200 грн"; // можна розкоментувати, щоб властивість додалась в об'єкт, тоді загальна сума і макс ціна буде інша
+// services['Розбити скло'] = "200 грн"; Розкоментувати як нову послугу 
 
 console.log("Загальна сума: " + services.price());
 console.log("Мінімальна ціна: " + services.minPrice());
 console.log("Максимальна ціна: " + services.maxPrice()); */
+
 
