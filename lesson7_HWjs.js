@@ -14,25 +14,25 @@ obj.getInfo(); // Виводить всі властивості, включаю
 Не використовувати методи keys, values, entries
 Намагайтесь робити ДЗ самостійно та не дивитися будь-які підказки */
 
-/* let seaBag = {
-  towel: 'Пляжний рушник',
-  sunscreen: 'Крем SPF 50',
-  book: 'Кінг',
+//  let seaBag = {
+//   towel: 'Пляжний рушник',
+//   sunscreen: 'Крем SPF 50',
+//   book: 'Кінг',
 
-  getInfo: function() {
-    for (let key in this) {
-      if (typeof this[key] !== 'function') {
-        console.log(`${key}: ${this[key]}');
-      }
-    }
-  }
-};
+//   getInfo: function() {
+//     for (let key in this) {
+//       if (typeof this[key] !== 'function') {
+//         console.log(`${key}: ${this[key]}`);
+//       }
+//     }
+//   }
+// };
 
-// seaBag.getInfo();
+// // seaBag.getInfo();
 
-seaBag.snacks = 'Фрукти та вода';
+// seaBag.snacks = 'Фрукти та вода';
 
-seaBag.getInfo(); */
+// seaBag.getInfo(); 
 
 
 /* Задача 2. Сума вартості послуг
